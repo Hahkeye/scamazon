@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS scamazon_db;
+CREATE DATABASE scamazon_db;
