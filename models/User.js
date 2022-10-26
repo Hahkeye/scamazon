@@ -45,6 +45,7 @@ User.init(
             defaultValue: DataTypes.NOW,
           }
     },
+    
     {
       hooks: {
         beforeCreate: async (newUserData) => {
