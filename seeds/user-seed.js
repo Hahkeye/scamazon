@@ -2,22 +2,25 @@ const { User } = require('../models');
 
 const userPeople = [
   {
-    user_name: "",
-    user_last_name: "",
+    username: "user1",
+    email: "email@email.com",
+    password: "password",
     cart_id: 1,
   },
   {
-    user_name: "",
-    user_last_name: "",
-    cart_id: 1,
+    username: "user2",
+    email: "email@email.com",
+    password: "password",
+    cart_id: 2,
   },
   {
-    user_name: "",
-    user_last_name: "",
-    cart_id: 1,
+    username: "user3",
+    email: "email@email.com",
+    password: "password",
+    cart_id: 3,
   }
 ];
 
-const userSeeds = () => Cart.bulkCreate(userPeople);
+const seedUsers = () => User.bulkCreate(userPeople);
 
-module.exports = userSeeds;
+module.exports = seedUsers;
