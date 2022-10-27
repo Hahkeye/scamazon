@@ -9,5 +9,8 @@ router.get('/get/:id', async (req, res) => {
     // res.json()
 //   res.render('index');
 });
+router.post('/add/:id', async (req,res) =>{
+    console.log();
+});
 
 module.exports = router;
