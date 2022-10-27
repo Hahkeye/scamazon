@@ -39,7 +39,7 @@ User.init(
               len: [5],
             },
           },
-
+          
           Date: {
             type: DataTypes.DATE,
             defaultValue: DataTypes.NOW,
