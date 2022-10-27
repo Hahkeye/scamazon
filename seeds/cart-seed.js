@@ -8,6 +8,14 @@ const cartData = [
   {
     count: 3,
     owner_id: 2,
+  },
+  {
+    count: 7,
+    owner_id: 2,
+  },
+  {
+    count:5,
+    owner_id: 2,
   }
  
 ];
