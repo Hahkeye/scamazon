@@ -20,11 +20,11 @@ Product.hasMany(CartItem, {
     foreignKey:'product_id',
     // onDelete: 'CASECADE'
 });
-
-
+CartItem.hasOne(Product,{
+    foreignKey:'product_id',
+});
 CartItem.belongsTo(Cart, {
     foreignKey: 'cart_id',
 });
-
 
 module.exports = { Cart, User, CartItem, Product};
