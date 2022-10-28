@@ -6,16 +6,19 @@ function randomNum(min, max) {
   }
 
 
+
 router.get('/', async (req, res) =>{
     try{
-        const dbProduct = await Product.findAll();
+        const dbProduct = await Product.findAll({ limit: 3 });
 
         const product = dbProduct.map((product) =>
             product.get({plain: true})
         );
 
+        console.log(product)
+
         res.render('homepage',{
-            product,
+            product
         });
     } catch(err){
         console.log(err);
