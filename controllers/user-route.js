@@ -14,7 +14,10 @@ router.post('/create', async (req,res)=>{
   console.log(req.body);
   let data = await  User.create(req.body);
   console.log(data);
-  res.redirect("/homepage");
+  req.session.save( () =>{
+    req.session.isLoggedIn = true;
+    res.redirect("/homepage");
+  });
 });
 
 //Login
