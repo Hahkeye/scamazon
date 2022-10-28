@@ -16,15 +16,18 @@ Cart.hasMany(CartItem, {
     foreignKey: 'cart_id',
     onDelete: 'SET NULL',
 });
-Product.hasMany(CartItem, {
-    foreignKey:'product_id',
-    // onDelete: 'CASECADE'
+
+CartItem.belongsTo(Product,{//the model that gets the belongsTo has the foreign key
+    foreignKey: "product_id",
 });
-// CartItem.hasOne(Product,{
-//     foreignKey:'product_id',
-// });
-CartItem.belongsTo(Cart, {
+
+Product.hasMany(CartItem,{
+    foreignKey: "product_id",
+})
+
+CartItem.belongsTo(Cart,{
     foreignKey: 'cart_id',
-});
+})
+
 
 module.exports = { Cart, User, CartItem, Product};

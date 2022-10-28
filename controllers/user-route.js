@@ -1,77 +1,57 @@
 const router = require('express').Router();
+const { Op } = require('sequelize');
 const { User } = require('../models');
 
 
 // CREATE new user
-router.post('/', async (req, res) => {
-  try {
-    const newUser = await User.create({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
-    });
 
-    req.session.save(() => {
-      req.session.userId = newUser.id;
-      req.session.username = newUser.username;
-      req.session.loggedIn = true;
+router.get('/login', async (req,res)=>{
+  // console.log("asdasd");
+  res.render("login");
+});
 
-      res.json(newUser);
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+router.post('/create', async (req,res)=>{
+  console.log(req.body);
+  let data = await  User.create(req.body);
+  console.log(data);
+  req.session.save( () =>{
+    req.session.isLoggedIn = true;
+    res.redirect("/homepage");
+  });
 });
 
 //Login
+
+
 router.post('/login', async (req, res) => {
-  try {
-    const userData = await User.findOne({
-      where: {
-        username: req.body.username,
-      },
-    });
-
-    if (!userData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect username or password. Please try again!' });
-      return;
+  let data = await User.findOne({
+    where:{
+      email:{
+        [Op.eq]:req.body['email-login']
+      }
     }
-
-    const validPassword = await userData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect username or password. Please try again!' });
-      return;
+  })
+  if(data){
+    if(data.chckPassword(req.body['password-login'])){
+      console.log("good user name and good password");
+      req.session.save( () =>{
+        req.session.isLoggedIn = true;
+        res.redirect("/homepage");
+      });
     }
-
-    req.session.save(() => {
-      req.session.userId = userData.id;
-      req.session.username = userData.username;
-      req.session.loggedIn = true;
-
-      res
-        .status(200)
-        .json({ user: userData, message: 'You are now logged in!' });
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+  }else{
+    res.redirect('/user/login');
   }
 });
 
-// Logout
-router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
+
+router.post('/logout', async(req,res) =>{
+  if(req.session.isLoggedIn){
+    req.session.save( () =>{
+      req.session.isLoggedIn = false;
     });
-  } else {
-    res.status(404).end();
   }
+  res.render('login')
 });
 
 module.exports = router;
