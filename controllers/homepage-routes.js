@@ -6,28 +6,21 @@ function randomNum(min, max) {
   }
 
 
-function topProducts(){
+router.get('/', async (req, res) =>{
+    try{
+        const dbProduct = await Product.findAll();
 
-for (let i = 0; i < randomNum(1,5); i++) {
-    router.get('/', async (req, res) =>{
-        try{
-            const dbProduct = await Product.findAll();
+        const product = dbProduct.map((product) =>
+            product.get({plain: true})
+        );
 
-            const product = dbProduct.map((product) =>
-                product.get({plain: true})
-            );
-
-            res.render('homepage',{
-                product,
-            });
-        } catch(err){
-            console.log(err);
-            res.status(500).json(err);
-        }
-    });
-};
-};
-
-topProducts();
+        res.render('homepage',{
+            product,
+        });
+    } catch(err){
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
 
 module.exports = router;
