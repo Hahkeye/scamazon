@@ -2,8 +2,8 @@ const router = require('express').Router();
 const { User, Product } = require('../models');
 
 router.get('/', async (req, res) =>{
-    console.log(req.session.isLoggedIn);
-    req.session.touch();
+    // console.log(req.session.isLoggedIn);
+    // req.session.touch();
     try{
         const dbProduct = await Product.findAll();
 

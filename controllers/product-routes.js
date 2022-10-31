@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { beforeDestroy } = require('../config/connect');
+// const { beforeDestroy } = require('../config/connect');
 const Product = require('../models/Product');
 
 router.get('/', async (req, res) => {

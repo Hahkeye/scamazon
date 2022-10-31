@@ -25,6 +25,10 @@ router.get('/get/:id', async (req, res) => {
     }
 });
 
+router.put('/:id', async (req,res) =>{
+
+});
+
 router.delete("/remove/:id", async(req,res)=>{
     if(req.session.isLoggedIn){
         let data = await CartItem.destroy(req.params.id);
