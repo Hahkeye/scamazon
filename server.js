@@ -11,6 +11,8 @@ const PORT = process.env.PORT || 3001;
 app.use(express.static('views'))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(routes)
+
 const sesh = {
   secret: 'super secret sauce',
   cookie: {maxAge: 60000},
