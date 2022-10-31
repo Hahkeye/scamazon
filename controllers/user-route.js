@@ -32,8 +32,10 @@ router.post('/login', async (req, res) => {
     }
   })
   if(data){
+    console.log(data);
     if(data.checkPassword(req.body['password-login'])){
       console.log("good user name and good password");
+      console.log(req.session); 
       req.session.save( () =>{
         req.session.isLoggedIn = true;
         res.redirect("/homepage");
