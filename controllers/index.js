@@ -10,5 +10,5 @@ router.use('/', homepage);
 
 router.use('/user',userRoutes);
 
-router.use('/product', productRoutes);
+router.use('/products', productRoutes);
 module.exports = router;

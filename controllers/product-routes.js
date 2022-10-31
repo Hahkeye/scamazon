@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { Op } = require('sequelize');
 // const { beforeDestroy } = require('../config/connect');
 const Product = require('../models/Product');
 
@@ -12,12 +13,17 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:name', async (req, res) => {
   try{
-    const singProduct = await Product.findByPk(req.params.id,{});
+    const singProduct = await Product.findOne({
+      where: {
+        name: {
+          [Op.like]: req.params.name
+        }
+      }
+    });
     const product = singProduct.get({ plain: true });
-    console.log(product)
-    res.render('product', { product });
+    res.render('product', { product: [product] });
   }catch(err){
     res.status(500).json(err);
   }
