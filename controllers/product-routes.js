@@ -16,7 +16,8 @@ router.get('/:id', async (req, res) => {
   try{
     const singProduct = await Product.findByPk(req.params.id,{});
     const product = singProduct.get({ plain: true });
-    res.render('index', { product });
+    console.log(product)
+    res.render('product', { product });
   }catch(err){
     res.status(500).json(err);
   }
