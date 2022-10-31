@@ -17,6 +17,8 @@ router.get('/', async (req, res) =>{
             product.get({plain: true})
         );
 
+        console.log(product)
+
         res.render('homepage',{
             product
         });
