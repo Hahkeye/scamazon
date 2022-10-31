@@ -18,6 +18,10 @@ Product.init(
     price: {
       type: DataTypes.DECIMAL(10,2),
     },
+    img_name:{
+      type: DataTypes.STRING,
+      allowNull:false
+    },
     seller_id: {
       type: DataTypes.INTEGER,
       references: {
