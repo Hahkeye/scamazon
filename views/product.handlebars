@@ -3,7 +3,7 @@
   <div class="card-body">
     <h3 class="card-title">{{name}}</h3>
     <img src="/assets/images/{{img_name}}" class="card-img-top" alt="...">
-    <p class="card-text">{{price}}</p>
+    <p class="card-text">฿{{price}}</p>
     <form action="/cart/add" method="post">
         <input type="hidden" name="product_id" value="{{id}}">
         <button type="submit" class="btn btn-primary">Buy Me Now!</button>
