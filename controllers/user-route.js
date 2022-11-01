@@ -17,7 +17,7 @@ router.post('/create', async (req,res)=>{
   req.session.save( () =>{
     req.session.isLoggedIn = true;
     req.session.uID = data.dataValues['id'];
-    res.redirect("/homepage");
+    res.redirect("/");
   });
 });
 
@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
       req.session.save( () =>{
         req.session.isLoggedIn = true;
         req.session.uID = data.dataValues['id'];
-        res.redirect("/homepage");
+        res.redirect("/");
       });
     }
   }else{

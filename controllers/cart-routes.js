@@ -54,9 +54,13 @@ router.post("/remove/:id", async(req,res)=>{
 router.post('/add/', async (req,res) =>{
     //maybe check the login
     if(req.session.isLoggedIn){
-        console.log(req.body);
-        let data = CartItem.create(req.params);
+        
+        req.body['count']=1;
+        req.body['cart_id']=req.session.uID;
+        // console.log(req.body);
+        let data = await CartItem.create(req.body);
         console.log(data);//refresh to something so the cart gets udpate
+        res.redirect(`/cart/get/${req.session.uID}`)
     }else{
         res.redirect("/user/login");
     }

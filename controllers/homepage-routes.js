@@ -16,7 +16,7 @@ router.get('/', async (req, res) =>{
         const product = dbProduct.map((product) =>
             product.get({plain: true})
         );
-
+        // console.log(product);
         res.render('homepage',{
             css:'homepageStyle.css',
             product: product, sesh: req.session

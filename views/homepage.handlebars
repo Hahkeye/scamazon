@@ -1,4 +1,4 @@
- <a href="/homepage/products">See all products</a>
+ <a href="/products">See all products</a>
 
 <div id="img">
 <img name="slide" width="200" height="1000" />
@@ -9,11 +9,11 @@
 <div class="cardContainer">
   {{#each product}}
   <div class="card" style="width: 18rem;">
-      <img src="https://via.placeholder.com/150C/O https://placeholder.com/" class="card-img-top" alt="...">
+      <img src="assets/images/{{img_name}}" class="card-img-top" alt="...">
       <div class="card-body">
       <h5 class="card-title">{{name}}</h5>
       <p class="card-text">{{price}}</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <a href="/product/get/{{id}}" class="btn btn-primary">Go somewhere</a>
     </div>
   </div>
   {{/each}}

@@ -28,6 +28,16 @@ router.get('/:name', async (req, res) => {
     res.status(500).json(err);
   }
 });
+router.get('/get/:id', async (req, res) => {
+  try{
+    const singProduct = await Product.findByPk(req.params.id,{raw: true});
+
+    console.log(singProduct);
+    res.render('product', { product: [singProduct],session: req.session });
+  }catch(err){
+    res.status(500).json(err);
+  }
+});
 
 router.post('/', async (req,res)=>{
   try{
