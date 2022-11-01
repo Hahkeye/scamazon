@@ -1,0 +1,21 @@
+<div>
+    <h2>Your cart</h2>
+    <div class="cart-items">
+        {{#each cart.CartItems}}
+            <div>
+                <p>{{this.Product.dataValues.name}}</p>
+                <p>Amount: {{this.Product.dataValues.id}}</p>
+                <form action="/cart/remove/{{this.dataValues.id}}" method="POST">
+                    <input type="hidden" name="cid" value="{{this.dataValues.id}}">
+                    <input type="hidden" name="oid" value="{{this.dataValues.[owner_id]}}">
+                    <button type="submit">delete</button>
+                </form>
+                {{!-- <form action="/cart/remove/{{this.dataValues.id}}" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" value="delete">
+                </form> --}}
+            </div>
+        {{/each}}
+    </div>
+</div>
+
