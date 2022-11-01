@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const { User, Product } = require('../models');
 
-function randomNum(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  }
+// function randomNum(min, max) {
+//     return Math.floor(Math.random() * (max - min + 1) + min);
+// }
 
 
 
@@ -19,7 +19,7 @@ router.get('/', async (req, res) =>{
 
         res.render('homepage',{
             css:'homepageStyle.css',
-            product
+            product: product, sesh: req.session
         });
     } catch(err){
         console.log(err);

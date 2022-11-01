@@ -19,7 +19,11 @@ router.get('/get/:id', async (req, res) => {
                 
             }]
         })
-        console.log(data);
+        // console.log(data);
+        let cartStuff = data.dataValues;
+        console.log(cartStuff);
+        
+        res.render('cart',{cart: cartStuff});
     }else{
         res.redirect("/user/login");
     }
@@ -29,10 +33,19 @@ router.put('/:id', async (req,res) =>{
 
 });
 
-router.delete("/remove/:id", async(req,res)=>{
+router.post("/remove/:id", async(req,res)=>{
+    console.log(req.body);
     if(req.session.isLoggedIn){
-        let data = await CartItem.destroy(req.params.id);
+        let data = await CartItem.destroy({
+            where:{
+                id:{
+                    [Op.eq]:req.body.cid
+                }
+            }
+        });
         console.log(data);//redirect to something so the cart get srefresehed
+        res.redirect()
+
     }else{
         res.redirect("/user/login");
     }
