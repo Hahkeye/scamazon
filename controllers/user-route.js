@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Op } = require('sequelize');
-const { User } = require('../models');
+const { User, Cart } = require('../models');
 
 
 // CREATE new user
@@ -11,9 +11,10 @@ router.get('/login', async (req,res)=>{
 });
 
 router.post('/create', async (req,res)=>{
-  console.log(req.body);
+  // console.log(req.body);
   let data = await  User.create(req.body);
-  console.log(data);
+  // console.log(data);
+  let data2 = await Cart.create({count:0,owner_id:data.id})
   req.session.save( () =>{
     req.session.isLoggedIn = true;
     req.session.uID = data.dataValues['id'];
