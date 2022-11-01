@@ -1,5 +1,13 @@
 .header{
-    background-color: red;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 90px;
+    color: orange;
+    font-family: 'Poor Story', cursive;
+    
 }
 a:link{
     text-decoration: none;
@@ -10,3 +18,4 @@ a:hover {
 a{
     color: purple;
 }
+
