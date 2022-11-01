@@ -11,16 +11,20 @@ router.get('/', async (req, res) =>{
     // console.log(req.session.isLoggedIn);
     // req.session.touch();
     try{
+        const dbProduct2 = await Product.findAll();
         const dbProduct = await Product.findAll({ limit: 3 });
 
         const product = dbProduct.map((product) =>
+            product.get({plain: true})
+        );
+        const product2 = dbProduct2.map((product) =>
             product.get({plain: true})
         );
         // console.log(product);
         res.render('homepage',{
             css:'homepageStyle.css',
             product: product, sesh: req.session
-        });
+        ,product2: product2});
     } catch(err){
         console.log(err);
         res.status(500).json(err);

@@ -1,22 +1,32 @@
 
 
-<div id="img">
-<img name="slide" width="200" height="1000" />
+<div id="slider" class="d-flex justify-content-center w-50 p-3">
+  {{!-- <img name="slide" width="200" height="1000" /> --}}
+  {{#each product2}}
+  <div class="p-4">
+    <img src="assets/images/{{img_name}}" class="card-img-top" alt="..." width="250px" height="250px">
+    <h5 class="card-title">{{name}}</h5>
+  </div>
+  {{/each}}
 </div>
 
-<p class="top">Top Products</p>
+<p class="top">Top Sellers</p>
 
 <div class="cardContainer">
   {{#each product}}
-  <div class="card" style="width: 18rem;">
-      <img src="assets/images/{{img_name}}" class="card-img-top" alt="...">
-      <div class="card-body">
-      <h5 class="card-title">{{name}}</h5>
-      <p class="card-text">{{price}}</p>
-      <a href="/product/get/{{id}}" class="btn btn-primary">Go somewhere</a>
+    <div class="card" style="width: 18rem;">
+        <img src="assets/images/{{img_name}}" class="card-img-top" alt="..." width="250px" height="250px">
+          <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <p class="card-text">{{price}}</p>
+            <a href="/product/get/{{id}}" class="btn btn-primary">Go somewhere</a>
+          </div>
     </div>
-  </div>
   {{/each}}
- 
 </div>
+ 
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+				
 <script src="/assets/js/homePage.js"></script>
