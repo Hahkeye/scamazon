@@ -7,27 +7,32 @@ router.get('/', async (req, res) => {
   try{
     const allProducts = await Product.findAll({});
     const collectedProducts = allProducts.map(collectedProducts=>collectedProducts.get({ plain: true }));
-    res.render('index',{ collectedProducts  });
+    res.render('index',{ collectedProducts });
   }catch(err){
     res.status(500).json(err);
   }
 });
 
-router.get('/:name', async (req, res) => {
+
+router.post('/getName', async (req, res) => {
+  console.log(req.body)
   try{
-    const singProduct = await Product.findOne({
+    const singProduct = await Product.findAll({
+      raw: true,
       where: {
         name: {
-          [Op.like]: req.params.name
+          [Op.substring]: `${req.body.searchBar}`
         }
       }
     });
-    const product = singProduct.get({ plain: true });
-    res.render('product', { product: [product]});
+    console.log(singProduct)
+    // const product = singProduct.get({ plain: true });
+    res.render('product', { product: singProduct });
   }catch(err){
     res.status(500).json(err);
   }
 });
+
 router.get('/get/:id', async (req, res) => {
   try{
     const singProduct = await Product.findByPk(req.params.id,{raw: true});
