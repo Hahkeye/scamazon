@@ -6,9 +6,9 @@ const homepage = require('./homepage-routes');
 //make sure they are using authication
 router.use('/cart',cartRoutes);
 
-router.use('/homepage', homepage);
+router.use('/', homepage);
 
 router.use('/user',userRoutes);
 
-router.use('/', productRoutes);
+router.use('/products', productRoutes);
 module.exports = router;
