@@ -30,6 +30,13 @@ const productData = [
     img_name:'lorax.jpg'
   },
   {
+    name: 'Not Luxury Bottled Air',
+    price: 114.99,
+    seller_id: 3,
+    description:`We've been able to blend natural, organic air and we've bottled it so you can take these health benefits with you wherever you go. Maintain alertness and focus during studying. Lasts up to 200 one second inhalations`,
+    img_name:'lorax.jpg'
+  },
+  {
     name: 'Cargo Jorts',
     price: 29.99,
     seller_id: 2,
