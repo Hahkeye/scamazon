@@ -3,8 +3,8 @@ const { Op } = require('sequelize');
 const { Cart, CartItem, Product } = require('../models');
 
 router.get('/get/:id', async (req, res) => {
-    console.log(req.params.id);
     if(req.session.isLoggedIn){
+        req.session.touch();
         let data = await Cart.findOne({
             // raw: true,
             plain: true,
@@ -23,7 +23,7 @@ router.get('/get/:id', async (req, res) => {
         let cartStuff = data.dataValues;
         console.log(cartStuff);
         
-        res.render('cart',{cart: cartStuff});
+        res.render('cart',{cart: cartStuff,sesh:req.session});
     }else{
         res.redirect("/user/login");
     }
@@ -34,8 +34,8 @@ router.put('/:id', async (req,res) =>{
 });
 
 router.post("/remove/:id", async(req,res)=>{
-    console.log(req.body);
     if(req.session.isLoggedIn){
+        req.session.touch();
         let data = await CartItem.destroy({
             where:{
                 id:{
@@ -54,7 +54,7 @@ router.post("/remove/:id", async(req,res)=>{
 router.post('/add/', async (req,res) =>{
     //maybe check the login
     if(req.session.isLoggedIn){
-        
+        req.session.touch();
         req.body['count']=1;
         req.body['cart_id']=req.session.uID;
         // console.log(req.body);
