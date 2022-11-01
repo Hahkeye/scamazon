@@ -44,7 +44,7 @@ router.post("/remove/:id", async(req,res)=>{
             }
         });
         console.log(data);//redirect to something so the cart get srefresehed
-        res.redirect()
+        res.redirect(`/cart/get/${req.session.uID}`);
 
     }else{
         res.redirect("/user/login");

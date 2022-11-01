@@ -33,14 +33,14 @@ const productData = [
     name: 'Cargo Jorts',
     price: 29.99,
     seller_id: 2,
-    description:`Have you ever thought, 'I can make it one trip' only to find out that you could not make it in one trip? Well, Cargo Jorts are for you. They are big, bulky, and have oh so many pockets! Perfect for carrying all the things you could ever dream of! All Cargo Jorts come in a fashionable denim that would make John Cena weap tears of joy, if you could see him.`,
+    description:`Have you ever thought, 'I can make it one trip' only to find out that you could not make it in one trip? Well, Cargo Jorts are for you. They are big, bulky, and have oh so many pockets! Perfect for carrying all the things you could ever dream of! All Cargo Jorts come in a fashionable denim that would make John Cena weep tears of joy, if you could see him.`,
     img_name:'cargo-jort.jpeg'
   },
   {
     name: 'HeadOn',
     price: 14.99,
     seller_id: 1,
-    description:``,
+    description:`Wild headache appeared! You used HeadOn! It isn't very effective...`,
     img_name:'Head_On.jpg'
   },
   {

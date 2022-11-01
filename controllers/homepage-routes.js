@@ -40,7 +40,7 @@ router.get('/products', async (req, res) =>{
         res.render('allproducts',{
             css:'allproducts.css',
             product
-        });
+        ,sesh: req.session});
     } catch(err){
         console.log(err);
         res.status(500).json(err);

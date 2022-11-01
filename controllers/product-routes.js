@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
   try{
     const allProducts = await Product.findAll({});
     const collectedProducts = allProducts.map(collectedProducts=>collectedProducts.get({ plain: true }));
-    res.render('index',{ collectedProducts });
+    res.render('index',{ collectedProducts  });
   }catch(err){
     res.status(500).json(err);
   }
@@ -23,7 +23,7 @@ router.get('/:name', async (req, res) => {
       }
     });
     const product = singProduct.get({ plain: true });
-    res.render('product', { product: [product] });
+    res.render('product', { product: [product]});
   }catch(err){
     res.status(500).json(err);
   }
