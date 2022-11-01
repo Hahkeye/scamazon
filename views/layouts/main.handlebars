@@ -33,7 +33,12 @@
                 <a href="/cart/get/{{sesh.uID}}">Cart</a>
             </button>
         {{/if}}
-            <input type="search">
+        <div>
+            <input id="searchBar" type="text" placeholder="Search..">
+            <button id="searchButton">search</button>
+        </div>
+</div>
+            
       </nav>
     </header>
     <div>
@@ -43,5 +48,6 @@
  {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
+  <script src="/assets/js/searchbar.js"></script>
 </body>
 </html>
