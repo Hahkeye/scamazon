@@ -6,21 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/{{css}}">
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     <title>Scamazon</title>
 </head>
 <body>
     <header class="header">
-        <h1>scamazon</h1>
-        <nav>
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
+        <a href="/">
+            <h1>scamazon</h1>
+        </a>
+        <nav class="navbar navbar-expand-lg">
+        {{#if sesh.isLoggedIn}}
+            <button>
+                <a href="/profile">profile</a>
+            </button>
+            {{!-- <button class="no-button" id="logout">logout</button> --}}
+            <button>
+                <a href="/user/logout">logout</a>
+            </button>
         {{else}}
-        <a href="/user/login">login</a>
+            <button>
+                <a href="/user/login">login</a>
+            </button>
         {{/if}}
+        {{#if sesh.uID}}
+            <button>
+                <a href="/cart/get/{{sesh.uID}}">Cart</a>
+            </button>
+        {{/if}}
+            <input type="search">
       </nav>
-      <input type="search">
     </header>
     <div>
         {{{body}}}

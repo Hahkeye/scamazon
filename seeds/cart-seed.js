@@ -11,13 +11,8 @@ const cartData = [
   },
   {
     count: 7,
-    owner_id: 2,
-  },
-  {
-    count:5,
-    owner_id: 2,
+    owner_id: 3,
   }
- 
 ];
 
 const seedCarts = () => Cart.bulkCreate(cartData);

@@ -16,7 +16,8 @@ router.post('/create', async (req,res)=>{
   console.log(data);
   req.session.save( () =>{
     req.session.isLoggedIn = true;
-    res.redirect("/homepage");
+    req.session.uID = data.dataValues['id'];
+    res.redirect("/");
   });
 });
 
@@ -32,13 +33,14 @@ router.post('/login', async (req, res) => {
     }
   })
   if(data){
-    console.log(data);
+    // console.log(data);
     if(data.checkPassword(req.body['password-login'])){
-      console.log("good user name and good password");
-      console.log(req.session); 
+      // console.log("good user name and good password");
+      // console.log(req.session); 
       req.session.save( () =>{
         req.session.isLoggedIn = true;
-        res.redirect("/homepage");
+        req.session.uID = data.dataValues['id'];
+        res.redirect("/");
       });
     }
   }else{
@@ -47,7 +49,7 @@ router.post('/login', async (req, res) => {
 });
 
 
-router.post('/logout', async(req,res) =>{
+router.get('/logout', async(req,res) =>{
   if(req.session.isLoggedIn){
     req.session.save( () =>{
       req.session.isLoggedIn = false;
