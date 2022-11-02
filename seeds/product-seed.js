@@ -2,6 +2,13 @@ const { Product } = require('../models');
 
 const productData = [
   {
+    name: 'Orogold',
+    price: 10000,
+    seller_id: 1,
+    description:'OROGOLD Cosmetics offers the ultimate in luxury beauty experiences. A distinguished skin care brand dedicated to creating exciting products, OROGOLD Cosmetics makes use of exceptional ingredients, like botanical extracts and minerals, with the added allure of real gold.',
+    img_name:'orogold.jpg'
+  },
+  {
     name: 'Plain T-Shirt',
     price: 149.37,
     seller_id: 1,
