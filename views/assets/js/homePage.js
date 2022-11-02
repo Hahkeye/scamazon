@@ -21,12 +21,15 @@
 
 	
 $(function(){
-  console.log("asdasdas");
+  // console.log("asdasdas");
   $('#slider').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
+    adaptiveHeight: true,
   });
-  $('.cardContainer').slick();
+  $('#cardContainer').slick({
+    centerMode: true
+  });
 });

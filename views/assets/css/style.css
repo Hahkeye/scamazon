@@ -16,6 +16,13 @@ a:hover {
     text-decoration: none;
 }
 a{
-    color: purple;
+    color: black;
 }
 
+
+
+.card-img-top2{
+    height: calc(50vh - 100px);
+  width: auto;
+  margin: 0 auto; 
+}

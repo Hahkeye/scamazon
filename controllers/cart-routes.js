@@ -29,9 +29,9 @@ router.get('/get/:id', async (req, res) => {
     }
 });
 
-router.put('/:id', async (req,res) =>{
+// router.put('/:id', async (req,res) =>{
 
-});
+// });
 
 router.post("/remove/:id", async(req,res)=>{
     if(req.session.isLoggedIn){

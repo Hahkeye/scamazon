@@ -2,7 +2,7 @@
     <h2>Your cart</h2>
     <div class="cart-items">
         {{#each cart.CartItems}}
-            <div>
+            <div class="card">
                 <p>{{this.Product.dataValues.name}}</p>
                 <p>Amount: {{this.Product.dataValues.id}}</p>
                 <form action="/cart/remove/{{this.dataValues.id}}" method="POST">

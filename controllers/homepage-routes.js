@@ -33,7 +33,7 @@ router.get('/', async (req, res) =>{
 
 router.get('/products', async (req, res) =>{
     // console.log(req.session.isLoggedIn);
-    // req.session.touch();
+    req.session.touch();
     try{
         const dbProduct = await Product.findAll({});
 
