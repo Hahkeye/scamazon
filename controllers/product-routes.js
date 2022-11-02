@@ -46,10 +46,7 @@ router.get('/get/:id', async (req, res) => {
 
 router.post('/', async (req,res)=>{
   try{
-     const newProduct= await Product.create({
-     name: req.body.name,
-     price: req.body.price
-    })
+     const newProduct= await Product.create(req.body)
     res.status(200).json(newProduct)
   }catch(err){
     res.status(500).json(err);
