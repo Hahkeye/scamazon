@@ -1,64 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/{{css}}">
-    <link rel="stylesheet" href="../assets/css/jass.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <title>Scamazon</title>
-</head>
-<body>
-    <header class="header">
-
-        <a href="/">
-            <h1>scamazon</h1>
-        </a>
-     </header>
-        <nav class="navbar navbar-expand-lg">
-            <button>
-                <a href="/products">All Products</a></button>
-             
-        {{#if sesh.isLoggedIn}}
-            <button>
-                <a href="/profile">profile</a>
-            </button>
-            {{!-- <button class="no-button" id="logout">logout</button> --}}
-            <button>
-                <a href="/user/logout">logout</a>
-            </button>
-        {{else}}
-            <button>
-                <a href="/user/login">login</a>
-            </button>
-        {{/if}}
-        {{#if sesh.uID}}
-            <button>
-                <a href="/cart/get/{{sesh.uID}}">Cart</a>
-            </button>
-        {{/if}}
-    
-        <div>
-            <form action="/product/getName" method="post">
-                <input  name="searchBar" type="text" placeholder="Search..">
-                <button id="searchButton" type="submit">search</button>
-            </form>
-        </div>
-</div>
-            
-      </nav>
-    </header>
-    <div>
-        {{{body}}}
-    </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+        <link rel="stylesheet" href="../assets/css/{{css}}" />
+        <link rel="stylesheet" href="../assets/css/jass.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7941272751444696" crossorigin="anonymous"></script>
+        <title>Scamazon</title>
+    </head>
+    <body>
+        <header class="header">
+            <a href="/">
+                <h1>scamazon</h1>
+            </a>
+            <nav class="navbar navbar-expand-lg">
+                <button>
+                    <a href="/products">All Products</a>
+                </button>
+                {{#if sesh.isLoggedIn}}
+                <button>
+                    <a href="/profile">profile</a>
+                </button>
+                {{!-- <button class="no-button" id="logout">logout</button> --}}
+                <button>
+                    <a href="/user/logout">logout</a>
+                </button>
+                {{else}}
+                <button>
+                    <a href="/user/login">login</a>
+                </button>
+                {{/if}} {{#if sesh.uID}}
+                <button>
+                    <a href="/cart/get/{{sesh.uID}}">Cart</a>
+                </button>
+                {{/if}}
+                <div class="d-flex">
+                    <form action="/product/getName" method="post">
+                        <input name="searchBar" type="text" placeholder="Search.." />
+                        <button id="searchButton" type="submit">search</button>
+                    </form>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="container-fluid justify-content-center">
+                {{{body}}}
+            </div>
         </main>
-</body>
-  <script src="/assets/js/searchbar.js"></script>
-</body>
+        <script src="/assets/js/searchbar.js"></script>
+    </body>
 </html>
