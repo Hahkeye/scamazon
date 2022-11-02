@@ -6,12 +6,16 @@
 
   # Table of Contents:
   * [Screenshot](#screenshot)
+  * [Link](#link)
   * [Usage](#usage)
   * [License](#license)
   * [Credits](#credits)
 
   # Screenshot 
+  ![mineboss asuscomm com_55674_](https://user-images.githubusercontent.com/110851664/199546985-2ee1e840-13b1-4881-bc14-7591722b8c55.png)
 
+  # Link
+  [Deployed site](http://mineboss.asuscomm.com:55674/)
 
   # Usage 
   Browse the site and if you see anything you like sign up and buy it. 
