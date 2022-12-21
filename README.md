@@ -16,6 +16,7 @@
 
   # Link
   [Deployed site](http://mineboss.asuscomm.com:55674/)
+  If its down shoot an email to one of the contributors.
 
   # Usage 
   Browse the site and if you see anything you like sign up and buy it. 
